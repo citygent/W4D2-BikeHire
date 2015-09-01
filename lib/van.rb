@@ -1,5 +1,7 @@
 class Van
 
+  attr_reader :bikes
+
   def initialize
     @bikes = []
   end
@@ -9,7 +11,7 @@ class Van
   end
 
   def collect(bike, station)
-    raise 'bike is not broken' if bike.broken?
+    raise 'bike is not broken' unless bike.broken?
     station.release(bike)
     @bikes << bike
   end
