@@ -10,4 +10,8 @@ class Garage
     @bikes.count
   end
 
+  def bike_fix
+    @bikes.each {|bike| bike.fix}
+  end
+
 end
