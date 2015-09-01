@@ -13,6 +13,7 @@ class DockingStation
   end
 
   def dock(bike)
+    raise 'Station is full' if full? #guard clause
     @bikes.push bike # @bikes << bike
   end
 
