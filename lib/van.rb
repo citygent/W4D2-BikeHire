@@ -22,8 +22,8 @@ class Van
     @bikes << (bike)
   end
 
-  def drop(bike)
-    # garage.bikes << bike
+  def drop(bike, destination)
+    destination.bikes << bike
     @bikes.delete bike
   end
 

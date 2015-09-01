@@ -48,11 +48,13 @@ describe Van do
   end
 
   it 'should drop off broken bikes at Garage' do 
+    garage = Garage.new
     bike.break
     station.dock(bike)
     van.collect(bike, station)
-    van.drop(bike)
+    van.drop(bike, garage)
     expect(van.bike_count).to eq 0
+    expect(garage.bike_count).to eq 1
   end
 
 end

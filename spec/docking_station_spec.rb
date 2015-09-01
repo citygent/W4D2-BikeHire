@@ -20,7 +20,7 @@ describe DockingStation do
     expect(station.bike_count).to eq 1
   end
 
-  it'should be able to release a bike' do 
+  it 'should be able to release a bike' do 
     station.dock(bike)
     station.release(bike)
     expect(station.bike_count).to eq 0
@@ -58,6 +58,6 @@ describe DockingStation do
 
     # puts station.broken_bikes.inspect
   end
-  
+
 
 end
