@@ -45,9 +45,19 @@ describe DockingStation do
     station.dock(broken_bike)
     expect(station.available_bikes).to eq [working_bike]
 
-    puts station.available_bikes.inspect
+    # puts station.available_bikes.inspect
 
   end
 
+  it 'should provide a list of broken bikes' do  
+    working_bike, broken_bike = Bike.new, Bike.new
+    broken_bike.break
+    station.dock(working_bike)
+    station.dock(broken_bike)
+    expect(station.broken_bikes).to eq [broken_bike]
+
+    # puts station.broken_bikes.inspect
+  end
+  
 
 end

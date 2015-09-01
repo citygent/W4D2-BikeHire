@@ -1,6 +1,8 @@
 class DockingStation
 
-  DEFAULT_CAPACITY = 5
+  attr_reader :bikes
+
+  DEFAULT_CAPACITY = 50
 
   def initialize options = {}
     @capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
@@ -29,5 +31,8 @@ class DockingStation
     @bikes.reject {|bike| bike.broken?}
   end
 
+  def broken_bikes
+    @bikes.select {|bike| bike.broken?}
+  end
 
 end
