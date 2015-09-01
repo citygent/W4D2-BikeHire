@@ -1,7 +1,12 @@
+require_relative './spec_helper.rb'
 require_relative '../lib/docking_station.rb'
 require_relative '../lib/bike.rb'
 
 describe DockingStation do 
+
+  def fill_station station
+    20.times { station.dock(Bike.new) }
+  end
 
   let(:station) { DockingStation.new({capacity: 20}) }
   let(:bike) { Bike.new }
@@ -22,20 +27,27 @@ describe DockingStation do
   end
 
   it 'should know when it has reached capacity' do 
-    20.times { station.dock(Bike.new) }
+    fill_station(station)
 
     expect(station.full?).to be true
   end
 
   it 'should not accept a bike when full' do 
-    20.times { station.dock(Bike.new) }
+    fill_station(station)
 
     expect { station.dock(bike) }.to raise_error 'Station is full'
   end
 
+  it 'should provide a list of available bikes' do 
+    working_bike, broken_bike = Bike.new, Bike.new
+    broken_bike.break
+    station.dock(working_bike)
+    station.dock(broken_bike)
+    expect(station.available_bikes).to eq [working_bike]
 
+    puts station.available_bikes.inspect
 
-
+  end
 
 
 end

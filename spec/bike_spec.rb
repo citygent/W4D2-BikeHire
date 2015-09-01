@@ -1,3 +1,4 @@
+require_relative './spec_helper.rb'
 require_relative '../lib/bike.rb'
 
 #describing functionlity of the specific bike class
