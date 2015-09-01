@@ -8,7 +8,9 @@ class Van
     @bikes.count
   end
 
-  def collect bike
+  def collect(bike, station)
+    raise 'bike is not broken' if bike.broken?
+    station.release(bike)
     @bikes << bike
   end
 
