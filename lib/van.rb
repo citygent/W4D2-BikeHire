@@ -15,10 +15,10 @@ class Van
     bike_count == @capacity
   end
 
-  def collect(bike, station)
+  def collect(bike, origin)
     raise 'Van is full' if full?
-    raise 'bike is not broken' unless bike.broken?
-    station.release(bike)
+    # raise 'bike is not broken' unless bike.broken?
+    origin.release(bike)
     @bikes << (bike)
   end
 

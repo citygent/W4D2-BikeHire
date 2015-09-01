@@ -29,10 +29,16 @@ describe Garage do
     expect(bike.broken?).to eq false
   end
 
-  # it 'should be able to release a bike' do 
-  #   station.dock(bike)
-  #   station.release(bike)
-  #   expect(station.bike_count).to eq 0
-  # end
+  it 'should send a fixed bike back to a docking station' do 
+    garage = Garage.new
+    van = Van.new
+    bike = Bike.new
+    station = DockingStation.new
+    van.drop(bike, garage) 
+    expect(garage.bike_count).to eq 1
+    van.collect(bike, garage)
+    expect(garage.bike_count).to eq 0
+  end
+
 
 end

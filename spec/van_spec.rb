@@ -2,6 +2,7 @@ require_relative './spec_helper.rb'
 require_relative '../lib/van.rb'
 require_relative '../lib/docking_station.rb'
 require_relative '../lib/bike.rb'
+require_relative '../lib/garage.rb'
 
 describe Van do
 
@@ -21,12 +22,12 @@ describe Van do
     expect(van.bike_count).to eq 1
   end
 
-  it 'should not collect working bikes' do 
-    station.dock(bike)
+  # it 'should not collect working bikes' do 
+  #   station.dock(bike)
 
-    expect { van.collect(bike, station) }.to raise_error 'bike is not broken'
-      # puts van.bikes.inspect
-  end
+  #   expect { van.collect(bike, station) }.to raise_error 'bike is not broken'
+  #     # puts van.bikes.inspect
+  # end
 
   it 'should know when its full' do
     9.times { station.dock (Bike.new) }

@@ -14,4 +14,9 @@ class Garage
     @bikes.each {|bike| bike.fix}
   end
 
+  def release(bike)
+    @bikes.delete bike
+  end
+
+
 end
